@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import { AnimalContext } from "./AnimalProvider"
 import { LocationContext } from "../locations/LocationProvider"
 import { CustomerContext } from "../customer/CustomerProvider"
@@ -11,12 +12,8 @@ export const AnimalList = () => {
   const { locations, getLocations } = useContext(LocationContext)
   const { customers, getCustomers } = useContext(CustomerContext)
 
-  //useEffect - reach out to the world for something
-//   useEffect(() => {
-//     console.log("AnimalList: useEffect - getAnimals")
-//     getAnimals()
+  const history = useHistory()
 
-//   }, [])
 useEffect(() => {
     console.log("AnimalList: Initial render before data")
     getLocations()
@@ -26,15 +23,24 @@ useEffect(() => {
 
 
 
-animals.map(animal => {
-    const owner = customers.find(c => c.id === animal.customerId)
-    const clinic = locations.find(l => l.id === animal.locationId)
-
-    return <AnimalCard key={animal.id}
-                location={clinic}
-                customer={owner}
-                animal={animal} />
-})
+return (
+    <div className="animals">
+         <button onClick={() => {history.push("/animals/create")}}>
+            Add Animal
+          </button>
+      {
+        animals.map(animal => {
+            const owner = customers.find(c => c.id === animal.customerId)
+            const location = locations.find(l => l.id === animal.locationId)
+        
+            return <AnimalCard key={animal.id}
+                        location={location}
+                        customer={owner}
+                        animal={animal} />
+        })
+      }
+    </div>
+  )
 }
 
 
