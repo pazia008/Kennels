@@ -47,18 +47,6 @@ export const ApplicationViews = () => {
 </AnimalProvider>
 
 
-            {/* <AnimalProvider>
-                <Route exact path="/animals">
-                   <AnimalList />
-                </Route>
-            </AnimalProvider> */}
-
-            {/* <EmployeeProvider>
-            <Route exact path="/employees">
-                <EmployeeList />
-            </Route>
-            </EmployeeProvider> */}
-
         <CustomerProvider>
             <Route exact path="/customers">
                 <CustomerList />
