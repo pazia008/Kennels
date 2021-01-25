@@ -19,9 +19,11 @@ export const EmployeeList = () => {
 
   return (
     <div className="employees">
+      <div className="button">
          <button onClick={() => {history.push("/employees/create")}}>
             Add Employee
           </button>
+          </div>
       {
         employees.map(employee=> {
             const location = locations.find(l => l.id === employee.locationId)
@@ -34,16 +36,3 @@ export const EmployeeList = () => {
     </div>
   )
 }
-
-
-//   return (
-//     <div className="employees">
-//       {console.log("EmployeeList: Render", employees)}
-//       {
-//         employees.map(employee => {
-//           return <EmployeeCard key={employee.id} employee={employee} />
-//         })
-//       }
-//     </div>
-//   )
-// }
