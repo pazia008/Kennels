@@ -20,7 +20,7 @@ export const LocationList = () => {
 
   return (
     <div className="locations">
-      <h2>Locations</h2>
+      
       <div>
 		      <button onClick={() => {history.push("/locations/create")}}>
             Add Location
