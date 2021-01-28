@@ -117,9 +117,9 @@ export const AnimalForm = () => {
         </fieldset>
         <fieldset>
           <div className="form-group">
-            <label htmlFor="customer">Customer: </label>
+            <label htmlFor="customer">Owner: </label>
             <select value={animal.customerId} name="customerId" id="customerAnimal" className="form-control" onChange={handleControlledInputChange}>
-              <option value="0">Select a customer</option>
+              <option value="0">Select a Owner</option>
               {customers.map(c => (
                 <option key={c.id} value={c.id}>
                     {c.name}
